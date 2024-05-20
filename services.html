@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services - Gurkha Care Home</title>
+  <link rel="stylesheet" href="GurkhaCareHome.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <?php include 'my-php.php'; ?>
+  <!-- Header -->
+  <header>
+    <nav id="navbar">
+      <div id="websitelogo">
+        <img src="logo.png" alt="Gurkha Care Home Logo" />
+      </div>
+      <div id="brandname">Gurkha Care Home</div>
+      <input type="checkbox" id="check" />
+      <label for="check" class="menu-button">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul>
+        <li><a href="GurkhaCareHome.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li><a href="#" id="login-link">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Login Form -->
+  <div id="login-form" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]);?>
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <input type="hidden" name="login" value="1">
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+    </div>
+  </div>
+
+  <!-- Sign Up Box -->
+  <div id="signup-box" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Sign Up</h2>
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]);?>
+        <input type="text" placeholder="Full Name" name="fullname" required />
+        <input type="email" placeholder="Email" name="email" required />
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <input type="hidden" name="signup" value="1">
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service-container">
+      <div class="service-card">
+        <img src="service1.jpg" alt="Service 1" />
+        <h3>Nursing Care</h3>
+        <p>Experienced nurses provide round-the-clock care and support.</p>
+        <button class="book-appointment" data-service="Nursing Care" data-doctors="Dr. John Doe, Dr. Jane Smith">Book
+          Appointment</button>
+      </div>
+      <div class="service-card">
+        <img src="service2.jpg" alt="Service 2" />
+        <h3>Physiotherapy</h3>
+        <p>Physiotherapists help with mobility, strength, and rehabilitation.</p>
+        <button class="book-appointment" data-service="Physiotherapy" data-doctors="Dr. Michael Johnson, Dr. Emily
+          Brown">Book Appointment</button>
+      </div>
+      <div class="service-card">
+        <img src="service3.jpg" alt="Service 3" />
+        <h3>Recreational Activities</h3>
+        <p>Engaging activities to promote social interaction and mental stimulation.</p>
+        <button class="book-appointment" data-service="Recreational Activities" data-doctors="Dr. David Wilson, Dr.
+          Sophia Davis">Book Appointment</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Modal -->
+  <?php
+  session_start();
+  if (isset($_SESSION["username"])) {
+    ?>
+  <div id="appointment-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Book Appointment</h2>
+      <form id="appointment-form" method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]);?>
+        <label for="service">Service:</label>
+        <input type="text" id="service" name="service" readonly>
+
+        <label for="doctor">Doctor:</label>
+        <select id="doctor" name="doctor"></select>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <input type="hidden" name="book_appointment" value="1">
+        <button type="submit">Book Appointment</button>
+        <div id="appointment-message"></div>
+      </form>
+    </div>
+  </div>
+  <?php
+  } else {
+    echo "You must be logged in to book an appointment.";
+  }
+  ?>
+
+  <!-- Footer -->
+  <footer id="socialmedia">
+    <a href="https://www.facebook.com/"><img src="facebook.png" alt="Facebook" /></a>
+    <a href="https://www.instagram.com/"><img src="instagram.png" alt="Instagram" /></a>
+    <a href="https://www.twitter.com"><img src="twitter.png" alt="Twitter" /></a>
+  </footer>
+
+  <script src="login.js"></script>
+  <script src="appointment.js"></script>
+</body>
+
+</html>

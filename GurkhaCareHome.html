@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gurkha Care Home</title>
+  <link rel="stylesheet" href="GurkhaCareHome.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <?php include 'my-php.php'; ?>
+
+  <!-- Header -->
+  <header>
+    <nav id="navbar">
+      <div id="websitelogo">
+        <img src="logo.png" alt="Gurkha Care Home Logo" />
+      </div>
+      <div id="brandname">Gurkha Care Home</div>
+      <input type="checkbox" id="check" />
+      <label for="check" class="menu-button">
+        <i class="material-icons">menu</i>
+      </label>
+      <ul>
+        <li><a href="GurkhaCareHome.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li><a href="#" id="login-link">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Login Form -->
+  <div id="login-form" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+    </div>
+  </div>
+
+  <!-- Sign Up Box -->
+  <div id="signup-box" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Sign Up</h2>
+      <form>
+        <input type="text" placeholder="Full Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <input type="password" placeholder="Confirm Password" />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div id="background_picture">
+      <img src="age care.jpg" alt="Age Care" />
+      <div id="appointment-section">
+        <h2>Book Appointment</h2>
+        <a href="services.html" id="appointment-button">Book Now</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="socialmedia">
+    <a href="https://www.facebook.com/"><img src="facebook.png" alt="Facebook" /></a>
+    <a href="https://www.instagram.com/"><img src="instagram.png" alt="Instagram" /></a>
+    <a href="https://www.twitter.com"><img src="twitter.png" alt="Twitter" /></a>
+  </footer>
+
+  <script src="login.js"></script>
+</body>
+
+</html>
